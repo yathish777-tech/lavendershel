@@ -1,0 +1,330 @@
+[
+  {
+    "id": "prod-snail-mail-club",
+    "name": "The Monthly Snail Mail Club Subscription",
+    "slug": "monthly-snail-mail-club",
+    "categoryId": "cat-snail-mail",
+    "description": "A heart-to-heart handwritten-style letter sealed in lavender wax, accompanied by 3 mindful reflection cards, vintage-inspired illustrated botanical stamps, and an exclusive mini vinyl sticker.",
+    "price": 18.00,
+    "compareAtPrice": 22.00,
+    "isSubscription": true,
+    "subscriptionPlans": [
+      { "id": "sub-monthly", "name": "Month-to-Month", "discount": 0, "price": 18.00, "interval": "monthly" },
+      { "id": "sub-3mo", "name": "3-Month Prepaid", "discount": 10, "price": 16.20, "interval": "every 3 months", "isPopular": true },
+      { "id": "sub-6mo", "name": "6-Month Prepaid", "discount": 15, "price": 15.30, "interval": "every 6 months" }
+    ],
+    "variants": [
+      { "id": "var-lavender", "name": "Dreamy Lavender Wax Seal", "color": "#B9A7E8" },
+      { "id": "var-rose", "name": "Blush Rose Wax Seal", "color": "#F8C8DC" },
+      { "id": "var-gold", "name": "Gilded Honeycomb Seal", "color": "#E2A76F" }
+    ],
+    "tags": ["Subscription", "Bestseller", "Handmade"],
+    "badges": ["Bestseller", "Monthly Delight"],
+    "stock": 45,
+    "isFeatured": true,
+    "isActive": true,
+    "rating": 4.9,
+    "reviewCount": 128,
+    "contentsSummary": [
+      { "title": "Wax-Sealed Keepsake Letter", "desc": "Printed on 120gsm textured Italian cotton paper with poetic affirmations." },
+      { "title": "3x Guided Self-Love Prompts", "desc": "Cozy questions to reconnect with your gentle inner voice." },
+      { "title": "Holographic Vinyl Sticker", "desc": "Waterproof pastel sticker designed to grace your laptop or tumbler." },
+      { "title": "Vintage-Style Flora Stamp Set", "desc": "Decorative collectible stamps infused with lavender essential mist." }
+    ],
+    "illustrationType": "envelope"
+  },
+  {
+    "id": "prod-snail-mail-singles",
+    "name": "One-Time Cozy Postal Care Parcel",
+    "slug": "cozy-postal-care-parcel",
+    "categoryId": "cat-snail-mail",
+    "description": "Want to experience the magic of physical mail without subscribing? Receive this standalone parcel packed with our favorite archival snail mail goodies and soothing tea sachets.",
+    "price": 24.50,
+    "compareAtPrice": 28.00,
+    "isSubscription": false,
+    "variants": [
+      { "id": "var-calm", "name": "Calm & Grounded Theme", "color": "#B9A7E8" },
+      { "id": "var-joy", "name": "Gentle Joy & Bloom Theme", "color": "#F4A6C4" }
+    ],
+    "tags": ["One-Time", "Gift", "Care Package"],
+    "badges": ["Fan Favorite"],
+    "stock": 30,
+    "isFeatured": false,
+    "isActive": true,
+    "rating": 4.8,
+    "reviewCount": 54,
+    "contentsSummary": [
+      { "title": "2x Illustrated Postcards", "desc": "Gold-foiled soft touch cards ready for sending to your favorite person." },
+      { "title": "Chamomile Lavender Tea Sachet", "desc": "Organic herbal blend for cozy letter writing sessions." },
+      { "title": "Silk Ribbon Bound Letter", "desc": "A poetic reflection on slow living." }
+    ],
+    "illustrationType": "parcel"
+  },
+  {
+    "id": "prod-penpal-stationery-pack",
+    "name": "The Vintage Penpal Correspondence Set",
+    "slug": "vintage-penpal-correspondence-set",
+    "categoryId": "cat-snail-mail",
+    "description": "Everything you need to write enchanting snail mail back to your friends. Includes 10 matching envelopes, 20 sheets of scalloped writing paper, and sealing stickers.",
+    "price": 21.00,
+    "compareAtPrice": 26.00,
+    "isSubscription": false,
+    "variants": [
+      { "id": "var-pastel-lavender", "name": "Lilac Wisteria", "color": "#B9A7E8" },
+      { "id": "var-baby-pink", "name": "Petal Whisper", "color": "#F8C8DC" }
+    ],
+    "tags": ["Letter Writing", "Paper Goods"],
+    "badges": ["Back in Stock"],
+    "stock": 25,
+    "isFeatured": true,
+    "isActive": true,
+    "rating": 4.9,
+    "reviewCount": 89,
+    "contentsSummary": [
+      { "title": "10x Scalloped Edge Envelopes", "desc": "Lined with delicate starry pattern interiors." },
+      { "title": "20x Writing Sheets", "desc": "Heavyweight fountain pen friendly cotton stock." },
+      { "title": "12x Embossed Peel-and-Stick Seals", "desc": "Simulated brass wax seal stickers." }
+    ],
+    "illustrationType": "letterset"
+  },
+  {
+    "id": "prod-spring-solstice-edition",
+    "name": "Spring Solstice Limited Keepsake Vault",
+    "slug": "spring-solstice-limited-keepsake-vault",
+    "categoryId": "cat-seasonal-editions",
+    "description": "Our limited seasonal release celebrating renewal. Housed in a hand-crafted keepsake book box with magnetic closure, pressed lavender sprigs, and custom ceramic stamp rest.",
+    "price": 54.00,
+    "compareAtPrice": 65.00,
+    "isSubscription": false,
+    "variants": [
+      { "id": "var-spring-blossom", "name": "Cherry Blossom & Lilac", "color": "#F8C8DC" }
+    ],
+    "tags": ["Limited Edition", "Keepsake", "Seasonal"],
+    "badges": ["Limited Run", "Numbered 1/500"],
+    "stock": 18,
+    "isFeatured": true,
+    "isActive": true,
+    "rating": 5.0,
+    "reviewCount": 42,
+    "contentsSummary": [
+      { "title": "Magnetic Book-Box Keepsake Case", "desc": "Velvet interior with gold foil celestial constellations." },
+      { "title": "Hand-carved Ceramic Pen Rest", "desc": "Shaped like a tiny sleeping bunny amongst petals." },
+      { "title": "Rose Quartz Palm Stone", "desc": "Sustainably sourced natural crystal for your desk." },
+      { "title": "Seasonal Journal Insert", "desc": "40 pages of quarterly intention-setting guides." }
+    ],
+    "illustrationType": "vault"
+  },
+  {
+    "id": "prod-autumn-twilight-box",
+    "name": "Twilight Reverie Autumn Edition",
+    "slug": "twilight-reverie-autumn-edition",
+    "categoryId": "cat-seasonal-editions",
+    "description": "Deep twilight hues, cinnamon-scented wax seal beads, and an archival notebook bound in plush dusty mauve velvet.",
+    "price": 49.00,
+    "compareAtPrice": 58.00,
+    "isSubscription": false,
+    "variants": [
+      { "id": "var-mauve", "name": "Twilight Plum", "color": "#8F7BD1" }
+    ],
+    "tags": ["Seasonal", "Velvet", "Keepsake"],
+    "badges": ["Few Left"],
+    "stock": 7,
+    "isFeatured": false,
+    "isActive": true,
+    "rating": 4.9,
+    "reviewCount": 38,
+    "contentsSummary": [
+      { "title": "Mauve Velvet Hardcover Journal", "desc": "160 dot-grid pages with gilded edges." },
+      { "title": "Spiced Plum Sealing Wax Beads", "desc": "Over 60 octagonal wax melting beads." },
+      { "title": "Brass Spoon with Rosewood Handle", "desc": "Ergonomic seal melting companion." }
+    ],
+    "illustrationType": "autumnbox"
+  },
+  {
+    "id": "prod-mindful-morning-journal",
+    "name": "Mindful Mornings Guided Self-Reflection Journal",
+    "slug": "mindful-mornings-guided-journal",
+    "categoryId": "cat-journaling",
+    "description": "180 days of undated gentle morning prompts, evening gratitude whispers, daily hydration & mood blossoms, and ribbon page markers in signature lavender.",
+    "price": 28.00,
+    "compareAtPrice": 34.00,
+    "isSubscription": false,
+    "variants": [
+      { "id": "var-lavender-cloth", "name": "Soft Lilac Linen", "color": "#B9A7E8" },
+      { "id": "var-cream-cloth", "name": "Vanilla Cream Linen", "color": "#FFF9F4" },
+      { "id": "var-rose-cloth", "name": "Petal Blush Linen", "color": "#F8C8DC" }
+    ],
+    "tags": ["Bestseller", "Journaling", "Hardcover"],
+    "badges": ["Bestseller"],
+    "stock": 62,
+    "isFeatured": true,
+    "isActive": true,
+    "rating": 4.95,
+    "reviewCount": 210,
+    "contentsSummary": [
+      { "title": "180 Undated Guided Pages", "desc": "Zero guilt if you skip days—journal at your own gentle pace." },
+      { "title": "120gsm Bleed-Proof Bamboo Paper", "desc": "Smooth writing surface tested with fountain pens & mildliners." },
+      { "title": "Double Satin Ribbon Markers", "desc": "Pastel pink and lavender woven ribbons." },
+      { "title": "Back Pocket Secret Envelope", "desc": "Tuck away love letters, ticket stubs, and pressed flowers." }
+    ],
+    "illustrationType": "journal"
+  },
+  {
+    "id": "prod-manifestation-dot-grid",
+    "name": "Dreamer's Celestial Dot Grid Notebook",
+    "slug": "dreamers-celestial-dot-grid-notebook",
+    "categoryId": "cat-journaling",
+    "description": "5mm light pastel purple dot grid notebook with celestial gold foil constellations stamped onto soft vegan leather.",
+    "price": 24.00,
+    "compareAtPrice": 28.00,
+    "isSubscription": false,
+    "variants": [
+      { "id": "var-celestial-pink", "name": "Moonlit Blush", "color": "#F8C8DC" },
+      { "id": "var-celestial-lavender", "name": "Starry Lavender", "color": "#B9A7E8" }
+    ],
+    "tags": ["Bullet Journal", "Dot Grid"],
+    "badges": ["Top Rated"],
+    "stock": 40,
+    "isFeatured": false,
+    "isActive": true,
+    "rating": 4.88,
+    "reviewCount": 77,
+    "contentsSummary": [
+      { "title": "192 Numbered Dot Grid Pages", "desc": "Subtle 5mm grid printed in lavender ink." },
+      { "title": "Index & Key Pages", "desc": "Pre-printed planning layout at front." }
+    ],
+    "illustrationType": "notebook"
+  },
+  {
+    "id": "prod-affirmation-sticker-book",
+    "name": "500+ Holographic Affirmation Sticker Vault",
+    "slug": "holographic-affirmation-sticker-vault",
+    "categoryId": "cat-stationery",
+    "description": "24 dreamy pages of iridescent quotes, smiling cloud buddies, vintage postal stamps, washi strips, and gentle reminders for your journals and letters.",
+    "price": 16.50,
+    "compareAtPrice": 20.00,
+    "isSubscription": false,
+    "variants": [
+      { "id": "var-soft-dreams", "name": "Pastel Dreamscape", "color": "#E6DEF8" }
+    ],
+    "tags": ["Stickers", "Holographic", "Affirmations"],
+    "badges": ["Staff Pick"],
+    "stock": 80,
+    "isFeatured": true,
+    "isActive": true,
+    "rating": 4.92,
+    "reviewCount": 165,
+    "contentsSummary": [
+      { "title": "24 Full-Color Sticker Sheets", "desc": "12 matte washi texture sheets & 12 rainbow holographic sheets." },
+      { "title": "Over 500 Individual Die-Cut Stickers", "desc": "Including affirmations like 'Blooming in my own time'." }
+    ],
+    "illustrationType": "stickers"
+  },
+  {
+    "id": "prod-brass-wax-seal-kit",
+    "name": "Heirloom Brass Wax Seal Starter Kit",
+    "slug": "heirloom-brass-wax-seal-starter-kit",
+    "categoryId": "cat-stationery",
+    "description": "Everything you need to craft old-world wax seals at home. Includes solid brass stamp with rose quartz handle, melting stove, tea lights, and 120 pastel wax pearls.",
+    "price": 32.00,
+    "compareAtPrice": 39.00,
+    "isSubscription": false,
+    "variants": [
+      { "id": "var-seashell-stamp", "name": "Lavendershell Motif", "color": "#B9A7E8" },
+      { "id": "var-wildflower-stamp", "name": "Wild Lavender Sprig", "color": "#8F7BD1" },
+      { "id": "var-crescent-stamp", "name": "Crescent & Stars", "color": "#F4A6C4" }
+    ],
+    "tags": ["Wax Seal", "Crafting", "Gift"],
+    "badges": ["Craft Favorite"],
+    "stock": 35,
+    "isFeatured": true,
+    "isActive": true,
+    "rating": 4.96,
+    "reviewCount": 140,
+    "contentsSummary": [
+      { "title": "Heavyweight Brass Stamp Die", "desc": "Precision carved 25mm design with removable quartz handle." },
+      { "title": "Cast Iron Melting Stove & Spoon", "desc": "Safe resting station for warm melting wax." },
+      { "title": "120 Pastel Wax Beads (4 shades)", "desc": "Lavender, blushing petal, cream shimmer, and lilac." }
+    ],
+    "illustrationType": "waxkit"
+  },
+  {
+    "id": "prod-gel-pen-bouquet",
+    "name": "Pastel Petal Micro-Tip Gel Pen Bouquet (Set of 6)",
+    "slug": "pastel-petal-micro-tip-gel-pen-bouquet",
+    "categoryId": "cat-stationery",
+    "description": "Super fine 0.38mm quick-drying pastel gel pens with velvety soft-touch barrels. Inks include muted dusty rose, lavender haze, sage sprout, and vintage plum.",
+    "price": 14.00,
+    "compareAtPrice": 18.00,
+    "isSubscription": false,
+    "variants": [
+      { "id": "var-full-bouquet", "name": "6-Color Bouquet", "color": "#B9A7E8" }
+    ],
+    "tags": ["Pens", "Gel Ink", "Writing"],
+    "badges": ["Zero Smudge"],
+    "stock": 95,
+    "isFeatured": false,
+    "isActive": true,
+    "rating": 4.87,
+    "reviewCount": 98,
+    "contentsSummary": [
+      { "title": "6x Japanese Archival Gel Pens", "desc": "Waterproof pigment ink that glides without skipping." }
+    ],
+    "illustrationType": "pens"
+  },
+  {
+    "id": "prod-self-love-sanctuary-bundle",
+    "name": "The Ultimate Self-Love Sanctuary Gift Box",
+    "slug": "ultimate-self-love-sanctuary-gift-box",
+    "categoryId": "cat-bundles",
+    "description": "Our grandest bundle packaged in our signature floral keepsake box. Includes our Guided Linen Journal, Brass Wax Seal Kit, 500+ Sticker Book, Rose Quartz Pen, and 3 months of Snail Mail letters.",
+    "price": 89.00,
+    "compareAtPrice": 115.00,
+    "isSubscription": false,
+    "variants": [
+      { "id": "var-deluxe-lavender", "name": "Lavender Dream Theme", "color": "#B9A7E8" },
+      { "id": "var-deluxe-blush", "name": "Sweet Peony Theme", "color": "#F8C8DC" }
+    ],
+    "tags": ["Bundle", "Luxury Gift", "Best Value"],
+    "badges": ["Save $26", "Signature Box"],
+    "stock": 20,
+    "isFeatured": true,
+    "isActive": true,
+    "rating": 4.98,
+    "reviewCount": 240,
+    "contentsSummary": [
+      { "title": "Hardcover Linen Journal", "desc": "Value $28, included in your choice of color." },
+      { "title": "Heirloom Brass Wax Seal Starter Kit", "desc": "Value $32, with 120 wax pearls and stove." },
+      { "title": "500+ Holographic Sticker Book", "desc": "Value $16.50, full 24 pages of art." },
+      { "title": "Pastel Gel Pen Set of 6", "desc": "Value $14, fine point 0.38mm." },
+      { "title": "Handmade Soy Wax Floral Wax Melt", "desc": "Infused with french lavender and vanilla." }
+    ],
+    "illustrationType": "grandbundle"
+  },
+  {
+    "id": "prod-cozy-evening-letter-kit",
+    "name": "Cozy Evening Letter Writer's Hamper",
+    "slug": "cozy-evening-letter-writers-hamper",
+    "categoryId": "cat-bundles",
+    "description": "Created for slower Sunday evenings. A darling woven basket filled with artisan deckled-edge paper, lavender chamomile tea, a brass letter opener, and scented sealing wax.",
+    "price": 62.00,
+    "compareAtPrice": 75.00,
+    "isSubscription": false,
+    "variants": [
+      { "id": "var-hamper-standard", "name": "Classic Cozy", "color": "#FDE8F0" }
+    ],
+    "tags": ["Bundle", "Gift Set"],
+    "badges": ["Gift Ready"],
+    "stock": 16,
+    "isFeatured": false,
+    "isActive": true,
+    "rating": 4.9,
+    "reviewCount": 63,
+    "contentsSummary": [
+      { "title": "15x Deckled-Edge Cotton Notecards", "desc": "Real torn edges made from recycled cotton rag." },
+      { "title": "Brass Butterfly Letter Opener", "desc": "Heirloom metal desktop accessory." },
+      { "title": "Apothecary Tea Jar (50g)", "desc": "Loose leaf lavender chamomile blend." }
+    ],
+    "illustrationType": "hamper"
+  }
+]
