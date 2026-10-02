@@ -5,6 +5,7 @@ import { useCart } from '../../context/CartContext.jsx';
 import { useWishlist } from '../../context/WishlistContext.jsx';
 import ProductIllustration from './ProductIllustration.jsx';
 import confetti from 'canvas-confetti';
+import { formatPrice } from '../../utils/formatPrice.js';
 
 export default function ProductCard({
   product,
@@ -185,11 +186,11 @@ export default function ProductCard({
         <div className="mt-auto pt-2 border-t border-[#F5EDF8] flex items-center justify-between gap-2">
           <div className="flex items-baseline gap-1.5">
             <span className="text-base font-bold text-[#4A3B5C] tabular-nums">
-              ${product.price.toFixed(2)}
+              {formatPrice(product.price)}
             </span>
             {product.compareAtPrice && (
               <span className="text-xs text-[#8A7B9C] line-through tabular-nums">
-                ${product.compareAtPrice.toFixed(2)}
+                {formatPrice(product.compareAtPrice)}
               </span>
             )}
             {product.isSubscription && (

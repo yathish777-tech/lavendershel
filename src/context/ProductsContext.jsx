@@ -12,13 +12,13 @@ const INITIAL_ORDERS = [
     email: "aria.m@example.com",
     date: "2026-09-28",
     itemsCount: 3,
-    total: 58.50,
+    total: 1947.00,
     status: "Shipped",
-    trackingNumber: "LV-77382-US",
+    trackingNumber: "LV-77382-IN",
     items: [
-      { name: "Mindful Mornings Guided Journal", quantity: 1, price: 28.00 },
-      { name: "Holographic Affirmation Sticker Vault", quantity: 1, price: 16.50 },
-      { name: "Pastel Petal Gel Pen Bouquet", quantity: 1, price: 14.00 }
+      { name: "Mindful Mornings Guided Journal", quantity: 1, price: 999.00 },
+      { name: "Holographic Affirmation Sticker Vault", quantity: 1, price: 499.00 },
+      { name: "Pastel Petal Gel Pen Bouquet", quantity: 1, price: 449.00 }
     ]
   },
   {
@@ -27,11 +27,11 @@ const INITIAL_ORDERS = [
     email: "hannah.a@example.com",
     date: "2026-09-29",
     itemsCount: 1,
-    total: 18.00,
+    total: 599.00,
     status: "Processing",
     trackingNumber: "Pending",
     items: [
-      { name: "The Monthly Snail Mail Club Subscription", quantity: 1, price: 18.00 }
+      { name: "The Monthly Snail Mail Club Subscription", quantity: 1, price: 599.00 }
     ]
   },
   {
@@ -40,11 +40,11 @@ const INITIAL_ORDERS = [
     email: "sophie.m@example.com",
     date: "2026-09-30",
     itemsCount: 2,
-    total: 89.00,
+    total: 2499.00,
     status: "Delivered",
-    trackingNumber: "LV-90412-FR",
+    trackingNumber: "LV-90412-IN",
     items: [
-      { name: "The Ultimate Self-Love Sanctuary Gift Box", quantity: 1, price: 89.00 }
+      { name: "The Ultimate Self-Love Sanctuary Gift Box", quantity: 1, price: 2499.00 }
     ]
   }
 ];
@@ -104,12 +104,16 @@ export function ProductsProvider({ children }) {
     showToast("Product removed from catalogue");
   };
 
-  const toggleProductActive = (id) => {
+  const toggleProductActive = async (id) => {
     setProducts(prev => prev.map(p => (p.id === id ? { ...p, isActive: !p.isActive } : p)));
+    await api.toggleProductActive(id);
   };
 
-  const toggleProductFeatured = (id) => {
-    setProducts(prev => prev.map(p => (p.id === id ? { ...p, isFeatured: !p.isFeatured } : p)));
+  const toggleProductFeatured = async (id) => {
+    const prod = products.find(p => p.id === id);
+    const newFeatured = !prod?.isFeatured;
+    setProducts(prev => prev.map(p => (p.id === id ? { ...p, isFeatured: newFeatured } : p)));
+    await api.updateProduct(id, { is_featured: newFeatured });
   };
 
   // Categories CRUD
@@ -148,12 +152,14 @@ export function ProductsProvider({ children }) {
     showToast("Category deleted");
   };
 
-  const toggleCategoryActive = (id) => {
+  const toggleCategoryActive = async (id) => {
     setCategories(prev => prev.map(c => (c.id === id ? { ...c, isActive: !c.isActive } : c)));
+    await api.toggleCategoryActive(id);
   };
 
-  const reorderCategories = (newOrder) => {
+  const reorderCategories = async (newOrder) => {
     setCategories(newOrder);
+    await api.reorderCategories(newOrder.map((c, idx) => ({ id: c.id, sort_order: idx + 1 })));
     showToast("Categories reordered! ✨");
   };
 
@@ -170,8 +176,9 @@ export function ProductsProvider({ children }) {
     return newOrder;
   };
 
-  const updateOrderStatus = (orderId, newStatus) => {
+  const updateOrderStatus = async (orderId, newStatus) => {
     setOrders(prev => prev.map(o => (o.id === orderId ? { ...o, status: newStatus } : o)));
+    await api.updateAdminOrderStatus(orderId, newStatus);
     showToast(`Order status updated to ${newStatus}`);
   };
 

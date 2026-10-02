@@ -81,14 +81,14 @@ export default function Navbar() {
 
           {/* ZONE 3: Primary Actions */}
           <div className="flex items-center gap-2 sm:gap-3">
-            {/* Dashboard Shortcut */}
+            {/* Admin Studio Link */}
             <Link
               to="/dashboard"
-              className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium text-[#6B5B7D] bg-[#F5F0FC] hover:bg-[#E6DEF8] border border-[#E6DEF8] transition-colors"
-              title="Admin Store Dashboard"
+              className="p-2 text-[#8A7B9C] hover:text-[#8F7BD1] hover:bg-[#FAF5FE] rounded-full transition-colors hidden sm:flex items-center justify-center"
+              aria-label="Admin Studio Portal"
+              title="Admin Studio Portal"
             >
-              <LayoutDashboard className="w-3.5 h-3.5 text-[#8F7BD1]" />
-              <span>Admin</span>
+              <LayoutDashboard className="w-4 h-4" />
             </Link>
 
             {/* Wishlist Link */}
@@ -156,15 +156,16 @@ export default function Navbar() {
                   {link.label}
                 </Link>
               ))}
+              <Link
+                to="/dashboard"
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-sm font-medium py-2 px-3 rounded-xl transition-colors text-[#8F7BD1] bg-[#FAF5FE] flex items-center gap-2 border border-[#E6DEF8]"
+              >
+                <LayoutDashboard className="w-4 h-4" />
+                <span>Admin Studio Dashboard</span>
+              </Link>
               <div className="pt-2 border-t border-[#F0E5F5] flex items-center justify-between">
-                <Link
-                  to="/dashboard"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center gap-2 text-sm text-[#8F7BD1] font-semibold py-1"
-                >
-                  <LayoutDashboard className="w-4 h-4" />
-                  <span>Admin Dashboard</span>
-                </Link>
+                <span className="text-xs text-[#8A7B9C]">Handcrafted with love ✿</span>
                 <span className="text-xs text-[#8A7B9C]">v1.0 Storefront</span>
               </div>
             </div>

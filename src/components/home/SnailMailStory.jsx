@@ -128,7 +128,7 @@ export default function SnailMailStory() {
               <Link to="/products?category=cat-snail-mail">
                 <Button variant="primary" size="lg" className="w-full sm:w-auto">
                   <Mail className="w-4 h-4" />
-                  <span>Subscribe to Snail Mail ($18/mo)</span>
+                  <span>Subscribe to Snail Mail (₹599/mo)</span>
                 </Button>
               </Link>
             </div>

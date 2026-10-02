@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Input from '../components/ui/Input.jsx';
 import Button from '../components/ui/Button.jsx';
 import ProductIllustration from '../components/product/ProductIllustration.jsx';
+import { Upload, X, Loader2, Image as ImageIcon } from 'lucide-react';
+import { api } from '../services/api.js';
 
 export default function ProductForm({
   product = null, // null for add, object for edit
@@ -16,11 +18,35 @@ export default function ProductForm({
   const [compareAtPrice, setCompareAtPrice] = useState(product?.compareAtPrice || '');
   const [stock, setStock] = useState(product?.stock !== undefined ? product?.stock : 25);
   const [illustrationType, setIllustrationType] = useState(product?.illustrationType || 'envelope');
+  const [images, setImages] = useState(product?.images || []);
+  const [isUploading, setIsUploading] = useState(false);
+  const [uploadError, setUploadError] = useState('');
   const [isSubscription, setIsSubscription] = useState(!!product?.isSubscription);
   const [isFeatured, setIsFeatured] = useState(!!product?.isFeatured);
   const [isActive, setIsActive] = useState(product?.isActive !== false);
   const [badgeText, setBadgeText] = useState(product?.badges?.[0] || 'Handmade');
   const [tagsInput, setTagsInput] = useState(product?.tags?.join(', ') || 'Stationery, Gift');
+
+  const handleFileUpload = async (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setUploadError('');
+    setIsUploading(true);
+    try {
+      const res = await api.uploadAdminImage(file);
+      if (res?.url) {
+        setImages(prev => [...prev, res.url]);
+      }
+    } catch (err) {
+      setUploadError(err.message || 'Image upload failed');
+    } finally {
+      setIsUploading(false);
+    }
+  };
+
+  const removeImage = (indexToRemove) => {
+    setImages(prev => prev.filter((_, idx) => idx !== indexToRemove));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -47,6 +73,7 @@ export default function ProductForm({
       compareAtPrice: compareAtPrice ? Number(compareAtPrice) : null,
       stock: Number(stock),
       illustrationType,
+      images,
       isSubscription,
       subscriptionPlans,
       isFeatured,
@@ -84,6 +111,62 @@ export default function ProductForm({
             Renders delicate vector pastel art dynamically.
           </span>
         </div>
+      </div>
+
+      {/* Supabase Storage Image Upload */}
+      <div className="p-4 bg-[#FFFDFB] rounded-2xl border border-[#E6DEF8] space-y-3">
+        <div className="flex items-center justify-between">
+          <label className="text-xs font-semibold text-[#4A3B5C] flex items-center gap-1.5">
+            <ImageIcon className="w-4 h-4 text-[#8F7BD1]" />
+            <span>Product Photography & Storage Images (Max 5MB)</span>
+          </label>
+          <label className="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#FAF5FE] hover:bg-[#E6DEF8] text-xs font-semibold text-[#8F7BD1] border border-[#E6DEF8] transition-colors">
+            {isUploading ? (
+              <>
+                <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                <span>Uploading...</span>
+              </>
+            ) : (
+              <>
+                <Upload className="w-3.5 h-3.5" />
+                <span>Upload to Bucket</span>
+              </>
+            )}
+            <input
+              type="file"
+              accept="image/png,image/jpeg,image/webp"
+              onChange={handleFileUpload}
+              disabled={isUploading}
+              className="hidden"
+            />
+          </label>
+        </div>
+
+        {uploadError && (
+          <p className="text-xs text-[#E74C3C]">{uploadError}</p>
+        )}
+
+        {images.length > 0 ? (
+          <div className="flex flex-wrap gap-2.5 pt-1">
+            {images.map((img, idx) => (
+              <div key={idx} className="relative w-16 h-16 rounded-xl border border-[#E6DEF8] overflow-hidden group">
+                <img src={img} alt={`Upload ${idx + 1}`} className="w-full h-full object-cover" />
+                <button
+                  type="button"
+                  onClick={() => removeImage(idx)}
+                  className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center text-white transition-opacity"
+                  title="Remove image"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <p className="text-[11px] text-[#8A7B9C]">
+            No uploaded photography yet. Vector pastel illustration motif above will represent this treasure.
+          </p>
+        )}
       </div>
 
       {/* Basic Info */}
@@ -127,7 +210,7 @@ export default function ProductForm({
       {/* Pricing & Inventory */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <Input
-          label="Selling Price ($)"
+          label="Selling Price (₹ INR)"
           type="number"
           step="0.01"
           required
@@ -135,7 +218,7 @@ export default function ProductForm({
           onChange={(e) => setPrice(e.target.value)}
         />
         <Input
-          label="Compare-At Price ($)"
+          label="Compare-At Price (₹ INR)"
           type="number"
           step="0.01"
           value={compareAtPrice}

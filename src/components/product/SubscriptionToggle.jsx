@@ -1,5 +1,6 @@
 import React from 'react';
 import { Sparkles, Calendar, Check } from 'lucide-react';
+import { formatPrice } from '../../utils/formatPrice.js';
 
 export default function SubscriptionToggle({
   isSubscriptionProduct = false,
@@ -35,7 +36,7 @@ export default function SubscriptionToggle({
         >
           <div className="text-xs font-semibold text-[#4A3B5C]">One-Time</div>
           <div className="text-sm font-bold text-[#4A3B5C] mt-0.5 tabular-nums">
-            ${oneTimePrice.toFixed(2)}
+            {formatPrice(oneTimePrice)}
           </div>
           <p className="text-[10px] text-[#8A7B9C] mt-1">Single trial parcel</p>
         </button>
@@ -58,7 +59,7 @@ export default function SubscriptionToggle({
             <Sparkles className="w-3 h-3 text-[#F4A6C4]" />
           </div>
           <div className="text-sm font-bold text-[#8F7BD1] mt-0.5 tabular-nums">
-            From ${(subscriptionPlans?.[subscriptionPlans.length - 1]?.price || oneTimePrice).toFixed(2)}
+            From {formatPrice(subscriptionPlans?.[subscriptionPlans.length - 1]?.price || oneTimePrice)}
           </div>
           <p className="text-[10px] text-[#8A7B9C] mt-1">Delivered monthly</p>
         </button>
@@ -101,7 +102,7 @@ export default function SubscriptionToggle({
                   </div>
                   <div className="text-right">
                     <span className="font-bold text-[#4A3B5C] tabular-nums">
-                      ${plan.price.toFixed(2)}
+                      {formatPrice(plan.price)}
                     </span>
                     <span className="text-[10px] text-[#8A7B9C] block">per parcel</span>
                   </div>

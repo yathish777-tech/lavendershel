@@ -21,14 +21,12 @@ import Home from './pages/Home.jsx';
 import Product from './pages/Product.jsx';
 import About from './pages/About.jsx';
 import Contact from './pages/Contact.jsx';
-
-// Dashboard
 import Dashboard from './dashboard/Dashboard.jsx';
 
 function AppContent() {
   const location = useLocation();
   const { toastMessage } = useProducts();
-  const isDashboard = location.pathname.startsWith('/dashboard');
+  const isDashboard = location.pathname.startsWith('/dashboard') || location.pathname.startsWith('/admin');
 
   return (
     <div className="flex flex-col min-h-screen bg-[#FFF9F4] text-[#4A3B5C]">
@@ -38,7 +36,7 @@ function AppContent() {
       {/* Pastel Custom Cursor with Sparkle Trail */}
       <CustomCursor />
 
-      {/* Top Navbar on storefront routes */}
+      {/* Top Navbar (only on storefront pages) */}
       {!isDashboard && <Navbar />}
 
       {/* Main Routed Content with Animated Transitions */}
@@ -79,7 +77,19 @@ function AppContent() {
             />
             <Route
               path="/dashboard"
-              element={<Dashboard />}
+              element={
+                <PageTransition>
+                  <Dashboard />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/admin"
+              element={
+                <PageTransition>
+                  <Dashboard />
+                </PageTransition>
+              }
             />
             {/* Catch-all fallback */}
             <Route
@@ -94,7 +104,7 @@ function AppContent() {
         </AnimatePresence>
       </main>
 
-      {/* Footer on storefront routes */}
+      {/* Footer (only on storefront pages) */}
       {!isDashboard && <Footer />}
 
       {/* Slide-in Cart Drawer */}

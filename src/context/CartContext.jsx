@@ -113,7 +113,7 @@ export function CartProvider({ children }) {
 
   const subtotal = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
   const discountAmount = (subtotal * appliedDiscount) / 100;
-  const shipping = subtotal > 45 || subtotal === 0 ? 0 : 4.50;
+  const shipping = subtotal >= 999 || subtotal === 0 ? 0 : 79;
   const total = Math.max(0, subtotal - discountAmount + shipping);
   const totalItemsCount = cart.reduce((acc, item) => acc + item.quantity, 0);
 

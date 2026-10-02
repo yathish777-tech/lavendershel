@@ -21,7 +21,7 @@ export default function Product() {
   const [searchQuery, setSearchQuery] = useState('');
   const [sortBy, setSortBy] = useState('featured');
   const [showSubscriptionOnly, setShowSubscriptionOnly] = useState(false);
-  const [priceRange, setPriceRange] = useState(150);
+  const [priceRange, setPriceRange] = useState(5000);
 
   // Active quick view / detail modal
   const [activeProduct, setActiveProduct] = useState(null);
@@ -98,7 +98,7 @@ export default function Product() {
     setSearchQuery('');
     setSortBy('featured');
     setShowSubscriptionOnly(false);
-    setPriceRange(150);
+    setPriceRange(5000);
     searchParams.delete('category');
     searchParams.delete('wishlist');
     setSearchParams(searchParams);

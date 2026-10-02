@@ -11,6 +11,7 @@ import RelatedProducts from './RelatedProducts.jsx';
 import Rating from '../ui/Rating.jsx';
 import Button from '../ui/Button.jsx';
 import confetti from 'canvas-confetti';
+import { formatPrice } from '../../utils/formatPrice.js';
 
 export default function ProductDetail({
   product,
@@ -91,11 +92,11 @@ export default function ProductDetail({
             {/* Price */}
             <div className="flex items-baseline gap-2.5 mt-2">
               <span className="text-2xl font-bold text-[#4A3B5C] tabular-nums">
-                ${effectivePrice.toFixed(2)}
+                {formatPrice(effectivePrice)}
               </span>
               {product.compareAtPrice && (
                 <span className="text-sm text-[#8A7B9C] line-through tabular-nums">
-                  ${product.compareAtPrice.toFixed(2)}
+                  {formatPrice(product.compareAtPrice)}
                 </span>
               )}
               {purchaseType === 'subscription' && (
@@ -168,7 +169,7 @@ export default function ProductDetail({
                 <span className="flex items-center gap-2">
                   <ShoppingBag className="w-5 h-5" />
                   <span>
-                    {purchaseType === 'subscription' ? 'Start Snail Mail Plan' : 'Add to Bag'} — ${(effectivePrice * quantity).toFixed(2)}
+                    {purchaseType === 'subscription' ? 'Start Snail Mail Plan' : 'Add to Bag'} — {formatPrice(effectivePrice * quantity)}
                   </span>
                 </span>
               )}

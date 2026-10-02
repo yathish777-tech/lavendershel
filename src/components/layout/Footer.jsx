@@ -90,12 +90,6 @@ export default function Footer() {
                   Shipping & Subscription Policy
                 </Link>
               </li>
-              <li>
-                <Link to="/dashboard" className="hover:text-[#4A3B5C] hover:underline transition-colors flex items-center gap-1.5">
-                  <Compass className="w-3 h-3 text-[#8F7BD1]" />
-                  <span>Store Manager Portal</span>
-                </Link>
-              </li>
             </ul>
           </div>
 
@@ -137,7 +131,7 @@ export default function Footer() {
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#8A7B9C]">
           <p>© {new Date().getFullYear()} Lavendershell Studio. All gentle rights reserved.</p>
           <div className="flex items-center gap-6">
-            <span>Free domestic shipping over $45</span>
+            <span>Free domestic shipping over ₹999</span>
             <span aria-hidden="true">·</span>
             <span>Hand-poured vegan wax</span>
             <span aria-hidden="true">·</span>

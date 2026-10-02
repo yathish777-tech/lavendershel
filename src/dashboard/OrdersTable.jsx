@@ -59,7 +59,7 @@ export default function OrdersTable() {
                     {order.itemsCount} {order.itemsCount === 1 ? 'parcel' : 'items'}
                   </td>
                   <td className="py-3 px-3 font-bold text-[#4A3B5C] tabular-nums">
-                    ${order.total.toFixed(2)}
+                    ₹{order.total.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                   </td>
                   <td className="py-3 px-3">
                     <select
@@ -149,7 +149,7 @@ export default function OrdersTable() {
                     <div className="text-right">
                       <span className="tabular-nums">Qty: {item.quantity}</span>
                       <span className="block font-bold text-[#4A3B5C] tabular-nums">
-                        ${(item.price * item.quantity).toFixed(2)}
+                        ₹{(item.price * item.quantity).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                       </span>
                     </div>
                   </div>
@@ -160,7 +160,7 @@ export default function OrdersTable() {
             <div className="pt-2 border-t border-[#F0E5F5] flex justify-between items-center text-sm font-bold text-[#4A3B5C]">
               <span>Total Paid</span>
               <span className="text-[#8F7BD1] text-base tabular-nums">
-                ${selectedOrder.total.toFixed(2)}
+                ₹{selectedOrder.total.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
               </span>
             </div>
           </div>

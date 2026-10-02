@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Sparkles, ArrowRight, Clock } from 'lucide-react';
 import Button from '../ui/Button.jsx';
 import ProductIllustration from '../product/ProductIllustration.jsx';
+import { formatPrice } from '../../utils/formatPrice.js';
 
 export default function SeasonalSpotlight({ products = [], onOpenQuickView }) {
   const seasonalProduct = products.find(p => p.categoryId === 'cat-seasonal-editions') || products[3];
@@ -44,11 +45,11 @@ export default function SeasonalSpotlight({ products = [], onOpenQuickView }) {
 
             <div className="flex items-baseline gap-3 pt-1">
               <span className="text-3xl font-bold text-[#4A3B5C] tabular-nums">
-                ${seasonalProduct.price.toFixed(2)}
+                {formatPrice(seasonalProduct.price)}
               </span>
               {seasonalProduct.compareAtPrice && (
                 <span className="text-base text-[#8A7B9C] line-through tabular-nums">
-                  ${seasonalProduct.compareAtPrice.toFixed(2)}
+                  {formatPrice(seasonalProduct.compareAtPrice)}
                 </span>
               )}
               <span className="text-xs text-[#8F7BD1] font-semibold">

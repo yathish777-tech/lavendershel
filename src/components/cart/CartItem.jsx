@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Trash2 } from 'lucide-react';
 import ProductIllustration from '../product/ProductIllustration.jsx';
+import { formatPrice } from '../../utils/formatPrice.js';
 
 export default function CartItem({
   item,
@@ -70,7 +71,7 @@ export default function CartItem({
           </div>
 
           <span className="text-xs font-bold text-[#4A3B5C] tabular-nums">
-            ${(item.price * item.quantity).toFixed(2)}
+            {formatPrice(item.price * item.quantity)}
           </span>
         </div>
       </div>
