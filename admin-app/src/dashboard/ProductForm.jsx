@@ -208,7 +208,7 @@ export default function ProductForm({
       </div>
 
       {/* Basic Info */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-start">
         <Input
           label="Product Name"
           required
@@ -217,22 +217,13 @@ export default function ProductForm({
           placeholder="e.g. Celestial Linen Notebook"
         />
 
-        <div className="relative pt-3 flex flex-col">
-          <label className="text-[11px] font-semibold text-[#8F7BD1] mb-1">
-            Category *
-          </label>
-          <select
-            value={categoryId}
-            onChange={(e) => setCategoryId(e.target.value)}
-            className="w-full px-4 py-3 bg-white/80 border border-[#E6DEF8] rounded-2xl text-sm text-[#4A3B5C] outline-none"
-          >
-            {categories.map((c) => (
-              <option key={c.id} value={c.id}>
-                {c.name}
-              </option>
-            ))}
-          </select>
-        </div>
+        <Input
+          label="Category"
+          required
+          value={categoryId}
+          onChange={(e) => setCategoryId(e.target.value)}
+          options={categories.map((c) => ({ label: c.name, value: c.id }))}
+        />
       </div>
 
       <Input
@@ -246,7 +237,7 @@ export default function ProductForm({
       />
 
       {/* Pricing & Inventory */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 items-start">
         <Input
           label="Selling Price (₹ INR)"
           type="number"
@@ -255,17 +246,15 @@ export default function ProductForm({
           value={price}
           onChange={handlePriceChange}
         />
-        <div>
-          <Input
-            label="Compare-At Price (₹ INR)"
-            type="number"
-            step="0.01"
-            value={compareAtPrice}
-            onChange={handleCompareAtChange}
-            error={compareAtError}
-            placeholder="Higher original price"
-          />
-        </div>
+        <Input
+          label="Compare-At Price (₹ INR)"
+          type="number"
+          step="0.01"
+          value={compareAtPrice}
+          onChange={handleCompareAtChange}
+          error={compareAtError}
+          placeholder="Higher original price"
+        />
         <Input
           label="Stock Inventory"
           type="number"

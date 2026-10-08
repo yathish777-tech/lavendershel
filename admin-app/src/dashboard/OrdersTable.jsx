@@ -30,38 +30,38 @@ export default function OrdersTable() {
       {/* Orders Table */}
       <div className="bg-[#FFFDFB] rounded-[24px] border border-[#E6DEF8] shadow-pastel overflow-hidden">
         <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs text-[#6B5B7D]">
+          <table className="w-full text-left text-xs text-[#6B5B7D] border-collapse">
             <thead className="bg-[#FAF5FE] text-[#4A3B5C] font-serif uppercase tracking-wider text-[11px] border-b border-[#E6DEF8]">
               <tr>
-                <th className="py-3.5 px-4">Order ID</th>
-                <th className="py-3.5 px-3">Date</th>
-                <th className="py-3.5 px-3">Customer</th>
-                <th className="py-3.5 px-3">Items</th>
-                <th className="py-3.5 px-3">Total</th>
-                <th className="py-3.5 px-3">Status</th>
-                <th className="py-3.5 px-4 text-right">Actions</th>
+                <th className="py-3.5 px-4 align-middle">Order ID</th>
+                <th className="py-3.5 px-3 align-middle">Date</th>
+                <th className="py-3.5 px-3 align-middle">Customer</th>
+                <th className="py-3.5 px-3 align-middle">Items</th>
+                <th className="py-3.5 px-3 align-middle">Total</th>
+                <th className="py-3.5 px-3 align-middle">Status</th>
+                <th className="py-3.5 px-4 align-middle text-right">Actions</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-[#F5EDF8]">
               {orders.map((order) => (
                 <tr key={order.id} className="hover:bg-[#FAF6FE]/50 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-[#4A3B5C]">
+                  <td className="py-3 px-4 align-middle font-mono font-bold text-[#4A3B5C]">
                     #{order.id}
                   </td>
-                  <td className="py-3 px-3 tabular-nums">
+                  <td className="py-3 px-3 align-middle tabular-nums">
                     {order.date}
                   </td>
-                  <td className="py-3 px-3">
-                    <strong className="text-[#4A3B5C] block">{order.customerName}</strong>
-                    <span className="text-[11px] text-[#8A7B9C]">{order.email}</span>
+                  <td className="py-3 px-3 align-middle">
+                    <strong className="text-[#4A3B5C] block leading-tight">{order.customerName}</strong>
+                    <span className="text-[11px] text-[#8A7B9C] leading-normal">{order.email}</span>
                   </td>
-                  <td className="py-3 px-3 tabular-nums">
+                  <td className="py-3 px-3 align-middle tabular-nums">
                     {order.itemsCount} {order.itemsCount === 1 ? 'parcel' : 'items'}
                   </td>
-                  <td className="py-3 px-3 font-bold text-[#4A3B5C] tabular-nums">
+                  <td className="py-3 px-3 align-middle font-bold text-[#4A3B5C] tabular-nums">
                     ₹{order.total.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                   </td>
-                  <td className="py-3 px-3">
+                  <td className="py-3 px-3 align-middle">
                     <select
                       value={order.status}
                       onChange={(e) => updateOrderStatus(order.id, e.target.value)}
@@ -75,7 +75,7 @@ export default function OrdersTable() {
                       <option value="Cancelled">Cancelled</option>
                     </select>
                   </td>
-                  <td className="py-3 px-4 text-right">
+                  <td className="py-3 px-4 align-middle text-right">
                     <button
                       onClick={() => setSelectedOrder(order)}
                       className="px-3 py-1 rounded-xl text-xs font-semibold text-[#8F7BD1] hover:bg-[#FAF5FE] border border-[#E6DEF8] transition-colors"
@@ -100,24 +100,24 @@ export default function OrdersTable() {
       >
         {selectedOrder && (
           <div className="space-y-4 pt-2 text-xs text-[#6B5B7D]">
-            <div className="p-3.5 rounded-2xl bg-[#FAF5FE] border border-[#E6DEF8] space-y-1">
-              <div className="flex justify-between">
-                <span className="text-[#8A7B9C]">Customer:</span>
-                <span className="font-bold text-[#4A3B5C]">{selectedOrder.customerName}</span>
+            <div className="p-3.5 rounded-2xl bg-[#FAF5FE] border border-[#E6DEF8] space-y-1.5">
+              <div className="flex items-center justify-between gap-3">
+                <span className="text-[#8A7B9C] shrink-0">Customer:</span>
+                <span className="font-bold text-[#4A3B5C] text-right">{selectedOrder.customerName}</span>
               </div>
-              <div className="flex justify-between">
-                <span className="text-[#8A7B9C]">Email:</span>
-                <span className="text-[#4A3B5C]">{selectedOrder.email}</span>
+              <div className="flex items-center justify-between gap-3">
+                <span className="text-[#8A7B9C] shrink-0">Email:</span>
+                <span className="text-[#4A3B5C] text-right">{selectedOrder.email}</span>
               </div>
               {selectedOrder.address && (
-                <div className="flex justify-between">
-                  <span className="text-[#8A7B9C]">Address:</span>
-                  <span className="text-[#4A3B5C] text-right">{selectedOrder.address}</span>
+                <div className="flex items-start justify-between gap-3">
+                  <span className="text-[#8A7B9C] shrink-0">Address:</span>
+                  <span className="text-[#4A3B5C] text-right leading-relaxed">{selectedOrder.address}</span>
                 </div>
               )}
-              <div className="flex justify-between">
-                <span className="text-[#8A7B9C]">Tracking:</span>
-                <span className="font-mono text-[#8F7BD1]">{selectedOrder.trackingNumber}</span>
+              <div className="flex items-center justify-between gap-3">
+                <span className="text-[#8A7B9C] shrink-0">Tracking:</span>
+                <span className="font-mono text-[#8F7BD1] text-right">{selectedOrder.trackingNumber}</span>
               </div>
             </div>
 

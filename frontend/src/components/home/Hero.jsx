@@ -119,7 +119,7 @@ export default function Hero() {
             </div>
 
             {/* Social proof trust badge */}
-            <div className="pt-4 flex items-center justify-center lg:justify-start gap-6 text-xs text-[#8A7B9C]">
+            <div className="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 text-xs text-[#8A7B9C]">
               <div className="flex items-center gap-1.5">
                 <span className="text-[#F4A6C4]">★★★★★</span>
                 <span className="font-semibold text-[#4A3B5C]">4.95/5</span>
@@ -157,11 +157,11 @@ export default function Hero() {
                 <div className="w-9 h-9 rounded-full bg-[#E6DEF8] flex items-center justify-center font-serif font-bold text-[#4A3B5C] text-sm shrink-0">
                   C
                 </div>
-                <div className="flex-1 min-w-0">
+                <div className="flex-1 min-w-0 text-left">
                   <p className="text-xs font-semibold text-[#4A3B5C] truncate">
                     "My mailbox finally brings me peace"
                   </p>
-                  <p className="text-[11px] text-[#8A7B9C] font-handwritten text-sm">
+                  <p className="text-xs text-[#8A7B9C] font-handwritten mt-0.5">
                     Clara B. · Monthly Penpal since 2024
                   </p>
                 </div>

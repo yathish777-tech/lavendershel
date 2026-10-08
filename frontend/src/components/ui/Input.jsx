@@ -13,16 +13,29 @@ export default function Input({
   multiline = false,
   rows = 4,
   options = null,
+  helperText = '',
   ...props
 }) {
   const [isFocused, setIsFocused] = useState(false);
   const inputId = id || `input-${Math.random().toString(36).substring(2, 9)}`;
-  const hasValue = value !== undefined && value !== null && String(value).length > 0;
-
-  const isFloating = isFocused || hasValue;
 
   return (
-    <div className={`relative flex flex-col pt-3 ${className}`}>
+    <div className={`flex flex-col space-y-1.5 text-left w-full ${className}`}>
+      {label && (
+        <label
+          htmlFor={inputId}
+          className="text-xs font-semibold text-[#4A3B5C] flex items-center justify-between select-none"
+        >
+          <span className="flex items-center gap-1">
+            {label}
+            {required && <span className="text-[#E74C3C] font-bold">*</span>}
+          </span>
+          {helperText && (
+            <span className="text-[10px] text-[#8A7B9C] font-normal">{helperText}</span>
+          )}
+        </label>
+      )}
+
       {multiline ? (
         <textarea
           id={inputId}
@@ -32,35 +45,42 @@ export default function Input({
           onBlur={() => setIsFocused(false)}
           rows={rows}
           required={required}
-          className={`w-full px-4 pt-4 pb-2 text-sm bg-white/80 border rounded-2xl transition-all outline-none resize-none text-[#4A3B5C] ${
+          placeholder={placeholder}
+          className={`w-full px-3.5 py-2.5 text-sm bg-white border rounded-2xl transition-all outline-none resize-none text-[#4A3B5C] placeholder-[#8A7B9C] ${
             isFocused
-              ? 'border-[#B9A7E8] shadow-[0_0_15px_rgba(185,167,232,0.35)] bg-white'
+              ? 'border-[#B9A7E8] shadow-[0_0_14px_rgba(185,167,232,0.35)] bg-white'
               : 'border-[#E6DEF8] hover:border-[#D4C6F4]'
-          } ${error ? 'border-rose-400' : ''}`}
-          placeholder={isFloating ? placeholder : ''}
+          } ${error ? 'border-rose-400 bg-rose-50/20' : ''}`}
           {...props}
         />
       ) : options ? (
-        <select
-          id={inputId}
-          value={value}
-          onChange={onChange}
-          onFocus={() => setIsFocused(true)}
-          onBlur={() => setIsFocused(false)}
-          required={required}
-          className={`w-full px-4 pt-4 pb-2 text-sm bg-white/80 border rounded-2xl transition-all outline-none text-[#4A3B5C] appearance-none ${
-            isFocused
-              ? 'border-[#B9A7E8] shadow-[0_0_15px_rgba(185,167,232,0.35)] bg-white'
-              : 'border-[#E6DEF8] hover:border-[#D4C6F4]'
-          }`}
-          {...props}
-        >
-          {options.map((opt, i) => (
-            <option key={i} value={opt.value}>
-              {opt.label}
-            </option>
-          ))}
-        </select>
+        <div className="relative w-full">
+          <select
+            id={inputId}
+            value={value}
+            onChange={onChange}
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => setIsFocused(false)}
+            required={required}
+            className={`w-full px-3.5 py-2.5 pr-9 text-sm bg-white border rounded-2xl transition-all outline-none text-[#4A3B5C] appearance-none cursor-pointer ${
+              isFocused
+                ? 'border-[#B9A7E8] shadow-[0_0_14px_rgba(185,167,232,0.35)] bg-white'
+                : 'border-[#E6DEF8] hover:border-[#D4C6F4]'
+            } ${error ? 'border-rose-400 bg-rose-50/20' : ''}`}
+            {...props}
+          >
+            {options.map((opt, i) => (
+              <option key={i} value={opt.value}>
+                {opt.label}
+              </option>
+            ))}
+          </select>
+          <div className="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none text-[#8A7B9C]">
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
+        </div>
       ) : (
         <input
           id={inputId}
@@ -70,32 +90,18 @@ export default function Input({
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
           required={required}
-          className={`w-full px-4 pt-4 pb-2 text-sm bg-white/80 border rounded-2xl transition-all outline-none text-[#4A3B5C] ${
+          placeholder={placeholder}
+          className={`w-full px-3.5 py-2.5 text-sm bg-white border rounded-2xl transition-all outline-none text-[#4A3B5C] placeholder-[#8A7B9C] ${
             isFocused
-              ? 'border-[#B9A7E8] shadow-[0_0_15px_rgba(185,167,232,0.35)] bg-white'
+              ? 'border-[#B9A7E8] shadow-[0_0_14px_rgba(185,167,232,0.35)] bg-white'
               : 'border-[#E6DEF8] hover:border-[#D4C6F4]'
-          } ${error ? 'border-rose-400' : ''}`}
-          placeholder={isFloating ? placeholder : ''}
+          } ${error ? 'border-rose-400 bg-rose-50/20' : ''}`}
           {...props}
         />
       )}
 
-      {/* Floating Label */}
-      {label && (
-        <label
-          htmlFor={inputId}
-          className={`absolute left-4 pointer-events-none transition-all duration-200 select-none ${
-            isFloating
-              ? 'top-1 text-[11px] font-semibold text-[#8F7BD1]'
-              : 'top-6 text-sm text-[#8A7B9C]'
-          }`}
-        >
-          {label} {required && <span className="text-rose-400">*</span>}
-        </label>
-      )}
-
       {error && (
-        <p className="text-xs text-rose-500 mt-1 pl-2">{error}</p>
+        <p className="text-xs text-rose-500 font-medium pl-1 pt-0.5">{error}</p>
       )}
     </div>
   );

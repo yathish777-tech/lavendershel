@@ -300,17 +300,17 @@ export default function CartDrawer() {
 
             {/* Promo Code Input */}
             {!isCheckingOut && (
-              <form onSubmit={handleApplyPromo} className="flex gap-2">
+              <form onSubmit={handleApplyPromo} className="flex items-center gap-2">
                 <input
                   type="text"
                   placeholder="Promo code (e.g. PASTELDREAM)"
                   value={promoInput}
                   onChange={(e) => setPromoInput(e.target.value)}
-                  className="flex-1 px-3.5 py-1.5 text-xs bg-white border border-[#E6DEF8] rounded-full outline-none focus:border-[#B9A7E8] text-[#4A3B5C]"
+                  className="flex-1 h-9 px-3.5 text-xs bg-white border border-[#E6DEF8] rounded-full outline-none focus:border-[#B9A7E8] text-[#4A3B5C]"
                 />
                 <button
                   type="submit"
-                  className="px-4 py-1.5 text-xs font-semibold rounded-full bg-[#E6DEF8] text-[#4A3B5C] hover:bg-[#D4C6F4] transition-colors"
+                  className="h-9 px-4 text-xs font-semibold rounded-full bg-[#E6DEF8] text-[#4A3B5C] hover:bg-[#D4C6F4] transition-colors cursor-pointer shrink-0"
                 >
                   Apply
                 </button>
@@ -384,25 +384,25 @@ export default function CartDrawer() {
 
             {/* Price Calculations */}
             <div className="pt-3 border-t border-[#F0E5F5] space-y-1.5 text-xs text-[#6B5B7D]">
-              <div className="flex justify-between">
+              <div className="flex items-center justify-between">
                 <span>Subtotal</span>
                 <span className="font-semibold text-[#4A3B5C] tabular-nums">
                   {formatPrice(subtotal)}
                 </span>
               </div>
               {appliedDiscount > 0 && (
-                <div className="flex justify-between text-[#117A65]">
+                <div className="flex items-center justify-between text-[#117A65]">
                   <span>Discount ({appliedDiscount}%)</span>
                   <span className="tabular-nums">-{formatPrice(discountAmount)}</span>
                 </div>
               )}
-              <div className="flex justify-between">
+              <div className="flex items-center justify-between">
                 <span>Shipping</span>
                 <span className="tabular-nums">
                   {shipping === 0 ? <strong className="text-[#117A65]">FREE</strong> : formatPrice(shipping)}
                 </span>
               </div>
-              <div className="flex justify-between text-sm font-bold text-[#4A3B5C] pt-2 border-t border-[#F0E5F5]">
+              <div className="flex items-center justify-between text-sm font-bold text-[#4A3B5C] pt-2 border-t border-[#F0E5F5]">
                 <span>Estimated Total</span>
                 <span className="text-base text-[#8F7BD1] tabular-nums">
                   {formatPrice(total)}

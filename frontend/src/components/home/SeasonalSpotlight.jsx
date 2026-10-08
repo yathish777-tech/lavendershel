@@ -47,7 +47,7 @@ export default function SeasonalSpotlight({ products = [], onOpenQuickView }) {
               {seasonalProduct.description} Adorned with hand-pressed wild lavender sprigs, rose quartz, and individually numbered archival seals.
             </p>
 
-            <div className="flex items-baseline gap-3 pt-1">
+            <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 pt-1">
               <span className="text-3xl font-bold text-[#4A3B5C] tabular-nums">
                 {formatPrice(seasonalProduct.price)}
               </span>

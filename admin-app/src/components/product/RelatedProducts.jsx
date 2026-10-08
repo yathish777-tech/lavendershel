@@ -20,7 +20,7 @@ export default function RelatedProducts({
         <h4 className="font-serif text-lg font-bold text-[#4A3B5C]">
           You Might Also Cherish
         </h4>
-        <span className="text-xs text-[#8F7BD1] font-medium font-handwritten text-base">
+        <span className="text-sm text-[#8F7BD1] font-medium font-handwritten">
           kindred treasures ✿
         </span>
       </div>

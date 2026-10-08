@@ -50,7 +50,7 @@ export default function Navbar() {
             <span className="text-xl sm:text-2xl font-serif font-bold text-[#4A3B5C] tracking-tight group-hover:text-[#8F7BD1] transition-colors">
               Lavendershell
             </span>
-            <span className="text-sm font-handwritten text-[#F4A6C4] hidden sm:inline -rotate-6">
+            <span className="text-sm font-handwritten text-[#F4A6C4] hidden sm:inline-block -rotate-6 origin-bottom-left leading-none">
               ✿ mail & musings
             </span>
           </Link>

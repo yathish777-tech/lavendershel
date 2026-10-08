@@ -101,7 +101,7 @@ export default function IntroAnimation({ onComplete }) {
               <span className="text-xl sm:text-2xl font-serif font-bold text-[#4A3B5C]">
                 Lavendershell
               </span>
-              <span className="text-xs font-handwritten text-[#F4A6C4] mt-1 text-base">
+              <span className="font-handwritten text-base text-[#F4A6C4] mt-1">
                 A softer way to stay in touch
               </span>
               <div className="mt-2 text-[11px] text-[#8A7B9C] flex items-center gap-1.5 font-sans">

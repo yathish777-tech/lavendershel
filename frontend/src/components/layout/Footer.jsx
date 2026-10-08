@@ -20,7 +20,7 @@ export default function Footer() {
                 <span className="font-serif text-xl font-bold text-[#4A3B5C]">
                   Lavendershell
                 </span>
-                <p className="text-[11px] text-[#8A7B9C] font-handwritten text-base -mt-1">
+                <p className="text-sm text-[#8A7B9C] font-handwritten mt-0.5">
                   letters to your softer self
                 </p>
               </div>
@@ -129,8 +129,8 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#8A7B9C]">
-          <p>© {new Date().getFullYear()} Lavendershell Studio. All gentle rights reserved.</p>
-          <div className="flex items-center gap-6">
+          <p className="text-center sm:text-left">© {new Date().getFullYear()} Lavendershell Studio. All gentle rights reserved.</p>
+          <div className="flex flex-wrap items-center justify-center sm:justify-end gap-x-6 gap-y-2 text-center sm:text-right">
             <span>Free domestic shipping over ₹999</span>
             <span aria-hidden="true">·</span>
             <span>Hand-poured vegan wax</span>

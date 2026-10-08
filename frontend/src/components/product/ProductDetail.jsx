@@ -92,7 +92,7 @@ export default function ProductDetail({
             </h2>
 
             {/* Price */}
-            <div className="flex items-baseline gap-2.5 mt-2">
+            <div className="flex flex-wrap items-baseline gap-2.5 mt-2">
               <span className="text-2xl font-bold text-[#4A3B5C] tabular-nums">
                 {formatPrice(effectivePrice)}
               </span>
@@ -135,11 +135,11 @@ export default function ProductDetail({
           {/* Quantity & CTA Row */}
           <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
             {/* Quantity Stepper */}
-            <div className="flex items-center justify-between bg-white border border-[#E6DEF8] rounded-full px-3 py-1.5 max-w-[130px] shadow-xs">
+            <div className="flex items-center justify-between bg-white border border-[#E6DEF8] rounded-full px-3 py-1.5 sm:w-32 shadow-xs shrink-0">
               <button
                 type="button"
                 onClick={() => setQuantity(q => Math.max(1, q - 1))}
-                className="w-7 h-7 rounded-full text-[#4A3B5C] hover:bg-[#FDE8F0] flex items-center justify-center font-bold text-base"
+                className="w-7 h-7 rounded-full text-[#4A3B5C] hover:bg-[#FDE8F0] flex items-center justify-center font-bold text-base cursor-pointer"
               >
                 -
               </button>
@@ -149,7 +149,7 @@ export default function ProductDetail({
               <button
                 type="button"
                 onClick={() => setQuantity(q => Math.min(product.stock || 99, q + 1))}
-                className="w-7 h-7 rounded-full text-[#4A3B5C] hover:bg-[#FDE8F0] flex items-center justify-center font-bold text-base"
+                className="w-7 h-7 rounded-full text-[#4A3B5C] hover:bg-[#FDE8F0] flex items-center justify-center font-bold text-base cursor-pointer"
               >
                 +
               </button>
@@ -181,7 +181,7 @@ export default function ProductDetail({
             <button
               type="button"
               onClick={() => toggleWishlist(product.id)}
-              className={`p-3.5 rounded-full border transition-all flex items-center justify-center shrink-0 ${
+              className={`p-3.5 rounded-full border transition-all flex items-center justify-center shrink-0 cursor-pointer ${
                 isFav
                   ? 'border-[#F8C8DC] bg-[#FDE8F0] text-[#F4A6C4]'
                   : 'border-[#E6DEF8] bg-white text-[#8A7B9C] hover:text-[#4A3B5C]'
@@ -193,13 +193,13 @@ export default function ProductDetail({
           </div>
 
           {/* Reassurance points */}
-          <div className="grid grid-cols-2 gap-2 pt-3 text-[11px] text-[#8A7B9C]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-3 text-xs text-[#8A7B9C]">
             <div className="flex items-center gap-2">
-              <Truck className="w-3.5 h-3.5 text-[#8F7BD1]" />
+              <Truck className="w-3.5 h-3.5 text-[#8F7BD1] shrink-0" />
               <span>Ships in protective envelope</span>
             </div>
             <div className="flex items-center gap-2">
-              <Sparkles className="w-3.5 h-3.5 text-[#F4A6C4]" />
+              <Sparkles className="w-3.5 h-3.5 text-[#F4A6C4] shrink-0" />
               <span>Hand-stamped wax seal</span>
             </div>
           </div>

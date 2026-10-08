@@ -86,14 +86,14 @@ export default function ProductsManager() {
             placeholder="Search by title, badge, keywords..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-9 pr-4 py-2 bg-white border border-[#E6DEF8] rounded-xl text-xs text-[#4A3B5C] outline-none"
+            className="w-full h-10 pl-9 pr-4 bg-white border border-[#E6DEF8] rounded-xl text-xs text-[#4A3B5C] outline-none hover:border-[#D4C6F4] focus:border-[#B9A7E8]"
           />
         </div>
 
         <select
           value={filterCategory}
           onChange={(e) => setFilterCategory(e.target.value)}
-          className="w-full sm:w-auto px-3 py-2 bg-white border border-[#E6DEF8] rounded-xl text-xs text-[#4A3B5C] outline-none font-medium"
+          className="w-full sm:w-auto h-10 px-3 bg-white border border-[#E6DEF8] rounded-xl text-xs text-[#4A3B5C] outline-none font-medium hover:border-[#D4C6F4] focus:border-[#B9A7E8] cursor-pointer"
         >
           <option value="all">All Categories</option>
           {categories.map((c) => (
@@ -107,16 +107,16 @@ export default function ProductsManager() {
       {/* Products Table */}
       <div className="bg-[#FFFDFB] rounded-[24px] border border-[#E6DEF8] shadow-pastel overflow-hidden">
         <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs text-[#6B5B7D]">
+          <table className="w-full text-left text-xs text-[#6B5B7D] border-collapse">
             <thead className="bg-[#FAF5FE] text-[#4A3B5C] font-serif uppercase tracking-wider text-[11px] border-b border-[#E6DEF8]">
               <tr>
-                <th className="py-3.5 px-4">Product</th>
-                <th className="py-3.5 px-3">Category</th>
-                <th className="py-3.5 px-3">Price</th>
-                <th className="py-3.5 px-3">Stock</th>
-                <th className="py-3.5 px-3 text-center">Featured</th>
-                <th className="py-3.5 px-3 text-center">Active</th>
-                <th className="py-3.5 px-4 text-right">Actions</th>
+                <th className="py-3.5 px-4 align-middle">Product</th>
+                <th className="py-3.5 px-3 align-middle">Category</th>
+                <th className="py-3.5 px-3 align-middle">Price</th>
+                <th className="py-3.5 px-3 align-middle">Stock</th>
+                <th className="py-3.5 px-3 align-middle text-center">Featured</th>
+                <th className="py-3.5 px-3 align-middle text-center">Active</th>
+                <th className="py-3.5 px-4 align-middle text-right">Actions</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-[#F5EDF8]">
@@ -133,7 +133,7 @@ export default function ProductsManager() {
                       className="hover:bg-[#FAF6FE]/50 transition-colors"
                     >
                       {/* Product with image */}
-                      <td className="py-3 px-4">
+                      <td className="py-3 px-4 align-middle">
                         <div className="flex items-center gap-3">
                           <div className="w-12 h-12 rounded-xl border border-[#E6DEF8] shrink-0 overflow-hidden">
                             <ProductImage
@@ -162,18 +162,18 @@ export default function ProductsManager() {
                       </td>
 
                       {/* Category */}
-                      <td className="py-3 px-3 text-[#4A3B5C] max-w-[130px] truncate">
+                      <td className="py-3 px-3 align-middle text-[#4A3B5C] max-w-[130px] truncate">
                         {catName}
                       </td>
 
                       {/* Price */}
-                      <td className="py-3 px-3 font-semibold text-[#4A3B5C] tabular-nums">
+                      <td className="py-3 px-3 align-middle font-semibold text-[#4A3B5C] tabular-nums">
                         ₹{p.price.toFixed(2)}
                       </td>
 
                       {/* Stock */}
-                      <td className="py-3 px-3 tabular-nums">
-                        <span className={`px-2 py-0.5 rounded-full font-medium ${
+                      <td className="py-3 px-3 align-middle tabular-nums">
+                        <span className={`inline-flex items-center px-2 py-0.5 rounded-full font-medium ${
                           p.stock <= 5 ? 'bg-[#FDEDEC] text-[#922B21]' : 'bg-[#E8F8F5] text-[#117A65]'
                         }`}>
                           {p.stock} in stock
@@ -181,11 +181,11 @@ export default function ProductsManager() {
                       </td>
 
                       {/* Featured Toggle */}
-                      <td className="py-3 px-3 text-center">
+                      <td className="py-3 px-3 align-middle text-center">
                         <button
                           type="button"
                           onClick={() => toggleProductFeatured(p.id)}
-                          className={`p-1.5 rounded-full transition-colors ${
+                          className={`p-1.5 rounded-full transition-colors inline-flex items-center justify-center ${
                             p.isFeatured ? 'text-[#F4A6C4] bg-[#FDE8F0]' : 'text-[#D4C6F4] hover:text-[#4A3B5C]'
                           }`}
                           title="Toggle featured status"
@@ -195,11 +195,11 @@ export default function ProductsManager() {
                       </td>
 
                       {/* Active Toggle */}
-                      <td className="py-3 px-3 text-center">
+                      <td className="py-3 px-3 align-middle text-center">
                         <button
                           type="button"
                           onClick={() => toggleProductActive(p.id)}
-                          className={`px-2.5 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase transition-colors ${
+                          className={`inline-flex items-center justify-center px-2.5 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase transition-colors ${
                             p.isActive !== false
                               ? 'bg-[#E8F8F5] text-[#117A65]'
                               : 'bg-[#F2F3F4] text-[#7F8C8D]'
@@ -210,7 +210,7 @@ export default function ProductsManager() {
                       </td>
 
                       {/* Actions */}
-                      <td className="py-3 px-4 text-right">
+                      <td className="py-3 px-4 align-middle text-right">
                         <div className="flex items-center justify-end gap-1">
                           <button
                             onClick={() => setEditingProduct(p)}

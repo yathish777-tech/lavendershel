@@ -13,12 +13,12 @@ export default function Button({
   type = 'button',
   ...props
 }) {
-  const baseClasses = "inline-flex items-center justify-center font-medium rounded-full transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#8F7BD1] disabled:opacity-50 disabled:cursor-not-allowed select-none";
+  const baseClasses = "inline-flex items-center justify-center font-medium rounded-full transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#8F7BD1] disabled:opacity-50 disabled:cursor-not-allowed select-none cursor-pointer";
 
   const sizeClasses = {
     sm: "text-xs px-3.5 py-1.5 gap-1.5",
     md: "text-sm px-5 py-2.5 gap-2 shadow-sm",
-    lg: "text-base px-7 py-3.5 gap-2.5 shadow-md",
+    lg: "text-base px-7 py-3 gap-2.5 shadow-md",
     icon: "p-2.5"
   };
 
@@ -42,7 +42,7 @@ export default function Button({
       {...props}
     >
       {Icon && iconPosition === 'left' && <Icon className="w-4 h-4 shrink-0" />}
-      <span>{children}</span>
+      <span className="inline-flex items-center justify-center gap-2 whitespace-nowrap">{children}</span>
       {Icon && iconPosition === 'right' && <Icon className="w-4 h-4 shrink-0" />}
     </motion.button>
   );

@@ -77,7 +77,7 @@ export default function About() {
               <h3 className="font-serif text-lg font-bold text-[#4A3B5C]">
                 Clara Beauchamp
               </h3>
-              <p className="text-xs text-[#8A7B9C] font-handwritten text-base">
+              <p className="font-handwritten text-base text-[#8A7B9C] mt-0.5">
                 Founder & Letter Writer
               </p>
               <span className="text-[10px] text-[#8F7BD1] mt-2 px-2.5 py-0.5 rounded-full bg-white border border-[#E6DEF8]">
@@ -86,7 +86,7 @@ export default function About() {
             </div>
           </div>
 
-          <div className="md:col-span-7 space-y-4">
+          <div className="md:col-span-7 space-y-4 text-left">
             <h3 className="font-serif text-2xl font-bold text-[#4A3B5C]">
               "A love letter to slow, tender moments."
             </h3>
@@ -105,7 +105,7 @@ export default function About() {
             <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#4A3B5C]">
               What We Hold Sacred
             </h2>
-            <p className="text-xs text-[#8A7B9C] mt-1 font-handwritten text-base">
+            <p className="font-handwritten text-base text-[#8A7B9C] mt-1">
               the heart behind every parcel ✿
             </p>
           </div>
@@ -151,8 +151,8 @@ export default function About() {
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 className="relative"
               >
-                {/* Dot */}
-                <div className="absolute -left-[31px] md:-left-[47px] top-1.5 w-5 h-5 rounded-full bg-white border-4 border-[#8F7BD1] shadow-xs" />
+                {/* Dot: centered exactly on the 2px border line */}
+                <div className="absolute -left-6 md:-left-10 -translate-x-[calc(50%+1px)] top-1.5 w-5 h-5 rounded-full bg-white border-4 border-[#8F7BD1] shadow-xs" />
 
                 <span className="text-xs font-bold text-[#8F7BD1] tracking-wider uppercase">
                   {item.year}

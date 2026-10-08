@@ -98,7 +98,7 @@ export default function SnailMailStory() {
                           {s.badge}
                         </span>
                         {isActive && (
-                          <span className="text-xs text-[#F4A6C4] font-handwritten text-base">
+                          <span className="text-sm text-[#F4A6C4] font-handwritten">
                             unfolding now ✿
                           </span>
                         )}

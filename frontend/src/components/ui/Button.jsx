@@ -42,7 +42,7 @@ export default function Button({
       {...props}
     >
       {Icon && iconPosition === 'left' && <Icon className="w-4 h-4 shrink-0" />}
-      <span>{children}</span>
+      <span className="inline-flex items-center justify-center gap-2 whitespace-nowrap">{children}</span>
       {Icon && iconPosition === 'right' && <Icon className="w-4 h-4 shrink-0" />}
     </motion.button>
   );

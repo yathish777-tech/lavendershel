@@ -35,11 +35,11 @@ export default function StatCard({
         </div>
         <div className="flex items-center gap-2 mt-1.5 text-xs">
           {trend && (
-            <span className="font-semibold text-[#117A65] bg-[#E8F8F5] px-2 py-0.5 rounded-full">
+            <span className="font-semibold text-[#117A65] bg-[#E8F8F5] px-2 py-0.5 rounded-full inline-flex items-center leading-none tabular-nums">
               {trend}
             </span>
           )}
-          <span className="text-[#8A7B9C]">{subtitle}</span>
+          <span className="text-[#8A7B9C] leading-none">{subtitle}</span>
         </div>
       </div>
     </motion.div>
