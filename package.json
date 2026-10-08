@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev:banner": "node scripts/banner.js",
-    "dev:storefront": "vite --port=5713 --host=0.0.0.0",
+    "dev:storefront": "vite frontend --port=5713 --host=0.0.0.0",
     "dev:admin": "vite admin-app --port=5714 --host=0.0.0.0",
     "dev:backend": "python3 -m uvicorn app.main:app --app-dir backend --port=8000 --reload || echo 'FastAPI backend can be started with: uvicorn app.main:app --app-dir backend --port 8000 --reload'",
     "dev:preview": "vite --port=3000 --host=0.0.0.0",
@@ -38,7 +38,6 @@
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "autoprefixer": "^10.4.21",
-    "esbuild": "^0.25.0",
     "tailwindcss": "^4.3.3",
     "tsx": "^4.21.0",
     "typescript": "^7.0.2"
