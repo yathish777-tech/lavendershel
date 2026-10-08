@@ -10,10 +10,10 @@
     "dev:backend": "python3 -m uvicorn app.main:app --app-dir backend --port=8000 --reload || echo 'FastAPI backend can be started with: uvicorn app.main:app --app-dir backend --port 8000 --reload'",
     "dev:preview": "vite --port=3000 --host=0.0.0.0",
     "dev": "node scripts/banner.js && concurrently -c \"magenta.bold,blue.bold,green.bold,yellow.bold\" -n \"STOREFRONT,ADMIN,API,PREVIEW\" \"npm:dev:storefront\" \"npm:dev:admin\" \"npm:dev:backend\" \"npm:dev:preview\"",
-    "build": "vite build",
+    "build": "vite build frontend",
     "preview": "vite preview",
     "clean": "rm -rf dist server.js",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit -p frontend/tsconfig.json && tsc --noEmit -p admin-app/tsconfig.json"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",

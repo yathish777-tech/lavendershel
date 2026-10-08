@@ -28,6 +28,7 @@ CREATE INDEX IF NOT EXISTS idx_categories_sort_order ON public.categories (sort_
 CREATE TABLE IF NOT EXISTS public.products (
     id TEXT PRIMARY KEY DEFAULT ('prod-' || substr(md5(random()::text), 1, 10)),
     name TEXT NOT NULL,
+    title TEXT,
     slug TEXT NOT NULL UNIQUE,
     category_id TEXT REFERENCES public.categories(id) ON DELETE SET NULL,
     description TEXT,
@@ -45,6 +46,26 @@ CREATE TABLE IF NOT EXISTS public.products (
     created_at TIMESTAMPTZ DEFAULT TIMEZONE('utc'::text, NOW()) NOT NULL,
     updated_at TIMESTAMPTZ DEFAULT TIMEZONE('utc'::text, NOW()) NOT NULL
 );
+
+-- Trigger to sync title <-> name and touch updated_at
+CREATE OR REPLACE FUNCTION public.sync_product_fields()
+RETURNS TRIGGER AS $$
+BEGIN
+    IF NEW.title IS NULL OR NEW.title = '' THEN
+        NEW.title := NEW.name;
+    END IF;
+    IF NEW.name IS NULL OR NEW.name = '' THEN
+        NEW.name := NEW.title;
+    END IF;
+    NEW.updated_at := TIMEZONE('utc'::text, NOW());
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP TRIGGER IF EXISTS trg_sync_product_fields ON public.products;
+CREATE TRIGGER trg_sync_product_fields
+    BEFORE INSERT OR UPDATE ON public.products
+    FOR EACH ROW EXECUTE FUNCTION public.sync_product_fields();
 
 CREATE INDEX IF NOT EXISTS idx_products_slug ON public.products (slug);
 CREATE INDEX IF NOT EXISTS idx_products_category_id ON public.products (category_id);
@@ -360,3 +381,24 @@ ON CONFLICT (id) DO UPDATE SET
     price = EXCLUDED.price,
     compare_at_price = EXCLUDED.compare_at_price,
     description = EXCLUDED.description;
+
+-- --------------------------------------------------------------------
+-- PERMISSIONS: Ensure PostgREST roles (anon, authenticated, service_role)
+-- have full operational permissions on the public schema and tables.
+-- --------------------------------------------------------------------
+GRANT USAGE ON SCHEMA public TO anon, authenticated, service_role;
+GRANT ALL ON ALL TABLES IN SCHEMA public TO anon, authenticated, service_role;
+GRANT ALL ON ALL SEQUENCES IN SCHEMA public TO anon, authenticated, service_role;
+GRANT ALL ON ALL ROUTINES IN SCHEMA public TO anon, authenticated, service_role;
+
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON TABLES TO anon, authenticated, service_role;
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON SEQUENCES TO anon, authenticated, service_role;
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON ROUTINES TO anon, authenticated, service_role;
+
+-- --------------------------------------------------------------------
+-- POSTGREST SCHEMA CACHE RELOAD
+-- Flushes PostgREST schema cache so tables & columns are immediately active
+-- and eliminates PGRST205 ("Could not find the table in the schema cache").
+-- --------------------------------------------------------------------
+NOTIFY pgrst, 'reload schema';
+

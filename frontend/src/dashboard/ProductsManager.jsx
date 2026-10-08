@@ -63,7 +63,7 @@ export default function ProductsManager() {
             Stationery Catalogue Manager
           </h2>
           <p className="text-xs text-[#8A7B9C] mt-0.5">
-            {products.length} total products loaded in-memory. Edits reflect across storefront immediately.
+            {products.length} total products in catalogue. Edits reflect across storefront immediately.
           </p>
         </div>
 

@@ -57,8 +57,20 @@ def root():
     }
 
 @app.get("/health")
+@app.get("/api/health")
 def health_check():
-    return {"status": "ok", "service": "lavendershell-backend"}
+    from app.services.supabase_client import check_supabase_health
+    db_status = check_supabase_health()
+    return {
+        "status": "ok",
+        "service": "lavendershell-backend",
+        "database": db_status
+    }
+
+@app.get("/api/admin/supabase-status")
+def supabase_status():
+    from app.services.supabase_client import check_supabase_health
+    return check_supabase_health()
 
 @app.exception_handler(Exception)
 async def global_exception_handler(request: Request, exc: Exception):

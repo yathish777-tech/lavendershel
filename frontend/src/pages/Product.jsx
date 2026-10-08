@@ -47,39 +47,44 @@ export default function Product() {
     return products
       .filter((p) => {
         // Active check
-        if (p.isActive === false) return false;
+        if (p.isActive === false || p.is_active === false) return false;
 
         // Wishlist filter
         if (wishlistParam && !wishlist.includes(p.id)) return false;
 
         // Category filter
-        if (selectedCategory !== 'all' && p.categoryId !== selectedCategory) {
+        const catId = p.categoryId || p.category_id;
+        if (selectedCategory !== 'all' && catId !== selectedCategory) {
           return false;
         }
 
         // Subscription filter
-        if (showSubscriptionOnly && !p.isSubscription) {
+        const isSub = Boolean(p.isSubscription || p.is_subscription);
+        if (showSubscriptionOnly && !isSub) {
           return false;
         }
 
         // Search query
         if (searchQuery.trim()) {
-          const q = searchQuery.toLowerCase();
-          const matchName = p.name.toLowerCase().includes(q);
-          const matchDesc = p.description.toLowerCase().includes(q);
+          const q = searchQuery.toLowerCase().trim();
+          const matchName = (p.name || p.title || '').toLowerCase().includes(q);
+          const matchDesc = (p.description || '').toLowerCase().includes(q);
           const matchTag = p.tags?.some(t => t.toLowerCase().includes(q));
-          if (!matchName && !matchDesc && !matchTag) return false;
+          const matchBadge = p.badges?.some(b => b.toLowerCase().includes(q)) || (typeof p.badge === 'string' && p.badge.toLowerCase().includes(q));
+          if (!matchName && !matchDesc && !matchTag && !matchBadge) return false;
         }
 
         return true;
       })
       .sort((a, b) => {
-        if (sortBy === 'price-asc') return a.price - b.price;
-        if (sortBy === 'price-desc') return b.price - a.price;
+        if (sortBy === 'price-asc') return (a.price || 0) - (b.price || 0);
+        if (sortBy === 'price-desc') return (b.price || 0) - (a.price || 0);
         if (sortBy === 'rating') return (b.rating || 0) - (a.rating || 0);
-        if (sortBy === 'name') return a.name.localeCompare(b.name);
+        if (sortBy === 'name') return (a.name || a.title || '').localeCompare(b.name || b.title || '');
         // Default: featured first
-        return (b.isFeatured ? 1 : 0) - (a.isFeatured ? 1 : 0);
+        const featA = a.isFeatured || a.is_featured ? 1 : 0;
+        const featB = b.isFeatured || b.is_featured ? 1 : 0;
+        return featB - featA;
       });
   }, [products, selectedCategory, searchQuery, sortBy, showSubscriptionOnly, wishlistParam, wishlist]);
 
