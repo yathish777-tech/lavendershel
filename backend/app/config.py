@@ -13,10 +13,14 @@ class Settings(BaseSettings):
     RAZORPAY_KEY_SECRET: str = "placeholder-key-secret"
     RAZORPAY_WEBHOOK_SECRET: str = "placeholder-webhook-secret"
 
-    # CORS & Client URLs
-    FRONTEND_URL: str = "http://localhost:5173"
-    ADMIN_URL: str = "http://localhost:5174"
+    # CORS & Client URLs (Storefront on 5713, Admin on 5714)
+    FRONTEND_URL: str = "http://localhost:5713"
+    ADMIN_URL: str = "http://localhost:5714"
     ADDITIONAL_ALLOWED_ORIGINS: List[str] = [
+        "http://localhost:5713",
+        "http://127.0.0.1:5713",
+        "http://localhost:5714",
+        "http://127.0.0.1:5714",
         "http://localhost:3000",
         "http://127.0.0.1:3000",
         "http://localhost:5173",
@@ -24,6 +28,12 @@ class Settings(BaseSettings):
         "http://localhost:5174",
         "http://127.0.0.1:5174"
     ]
+
+    # Admin Credentials & Auth (Stored in .env)
+    ADMIN_USERNAME: str = "lavendershelladmin"
+    ADMIN_PASSWORD: str = "AdminLSE"
+    ADMIN_JWT_SECRET: str = "lavendershell-studio-secret-jwt-key-2026-soft-plum"
+    ADMIN_JWT_EXPIRATION_HOURS: int = 8
 
     # Shipping Rules (INR)
     FREE_SHIPPING_THRESHOLD: float = 999.00
