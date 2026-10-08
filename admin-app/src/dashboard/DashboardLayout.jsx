@@ -77,8 +77,8 @@ export default function DashboardLayout({
 
       {/* Main Area */}
       <div className="flex-1 flex">
-        {/* Desktop Sidebar */}
-        <div className="hidden md:block">
+        {/* Desktop Sidebar - Stable & Sticky */}
+        <aside className="hidden md:block sticky top-16 h-[calc(100vh-4rem)] w-64 shrink-0 z-20 self-start">
           <Sidebar
             currentTab={currentTab}
             onSelectTab={onSelectTab}
@@ -89,7 +89,7 @@ export default function DashboardLayout({
               orders: orders.length
             }}
           />
-        </div>
+        </aside>
 
         {/* Mobile Slide-over Sidebar */}
         {mobileSidebarOpen && (

@@ -48,7 +48,7 @@ export default function CategoryForm({
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-start">
         <div className="space-y-1.5 text-left w-full">
-          <label className="text-xs font-semibold text-[#4A3B5C] flex items-center justify-between select-none">
+          <label className="text-xs font-semibold text-[#8F7BD1] flex items-center justify-between select-none">
             <span>Theme Color Accent</span>
           </label>
           <div className="flex items-center gap-3 h-[42px] px-3 bg-white border border-[#E6DEF8] rounded-2xl">
@@ -63,7 +63,7 @@ export default function CategoryForm({
         </div>
 
         <div className="space-y-1.5 text-left w-full">
-          <label className="text-xs font-semibold text-[#4A3B5C] flex items-center justify-between select-none">
+          <label className="text-xs font-semibold text-[#8F7BD1] flex items-center justify-between select-none">
             <span>Icon Symbol</span>
           </label>
           <div className="relative w-full">

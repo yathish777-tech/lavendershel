@@ -18,7 +18,7 @@ export default function Sidebar({ currentTab, onSelectTab, onLogout, counts = {}
   ];
 
   return (
-    <aside className="w-64 bg-[#FFFDFB] border-r border-[#E6DEF8] flex flex-col justify-between p-5 min-h-[calc(100vh-64px)]">
+    <div className="w-64 bg-[#FFFDFB] border-r border-[#E6DEF8] flex flex-col justify-between p-5 h-full overflow-y-auto">
       {/* Brand & Menu */}
       <div className="space-y-6">
         <div className="flex items-center gap-3 px-2">
@@ -89,6 +89,6 @@ export default function Sidebar({ currentTab, onSelectTab, onLogout, counts = {}
           </button>
         )}
       </div>
-    </aside>
+    </div>
   );
 }

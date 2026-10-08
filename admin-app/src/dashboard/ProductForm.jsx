@@ -282,7 +282,7 @@ export default function ProductForm({
 
       {/* Checkbox Toggles */}
       <div className="p-4 rounded-2xl bg-[#FFF9F4] border border-[#E6DEF8] grid grid-cols-1 sm:grid-cols-3 gap-3">
-        <label className="flex items-center gap-2.5 text-xs font-semibold text-[#4A3B5C] cursor-pointer">
+        <label className="flex items-center gap-2.5 text-xs font-semibold text-[#6852AB] cursor-pointer">
           <input
             type="checkbox"
             checked={isSubscription}
@@ -292,7 +292,7 @@ export default function ProductForm({
           <span>Monthly Subscription Item</span>
         </label>
 
-        <label className="flex items-center gap-2.5 text-xs font-semibold text-[#4A3B5C] cursor-pointer">
+        <label className="flex items-center gap-2.5 text-xs font-semibold text-[#6852AB] cursor-pointer">
           <input
             type="checkbox"
             checked={isFeatured}
@@ -302,7 +302,7 @@ export default function ProductForm({
           <span>Feature on Home Carousel</span>
         </label>
 
-        <label className="flex items-center gap-2.5 text-xs font-semibold text-[#4A3B5C] cursor-pointer">
+        <label className="flex items-center gap-2.5 text-xs font-semibold text-[#6852AB] cursor-pointer">
           <input
             type="checkbox"
             checked={isActive}

@@ -24,7 +24,7 @@ export default function Input({
       {label && (
         <label
           htmlFor={inputId}
-          className="text-xs font-semibold text-[#4A3B5C] flex items-center justify-between select-none"
+          className="text-xs font-semibold text-[#8F7BD1] flex items-center justify-between select-none"
         >
           <span className="flex items-center gap-1">
             {label}

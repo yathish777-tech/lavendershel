@@ -31,7 +31,7 @@ export default function OrdersTable() {
       <div className="bg-[#FFFDFB] rounded-[24px] border border-[#E6DEF8] shadow-pastel overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs text-[#6B5B7D] border-collapse">
-            <thead className="bg-[#FAF5FE] text-[#4A3B5C] font-serif uppercase tracking-wider text-[11px] border-b border-[#E6DEF8]">
+            <thead className="bg-[#FAF5FE] text-[#8F7BD1] font-serif uppercase tracking-wider text-[11px] border-b border-[#E6DEF8]">
               <tr>
                 <th className="py-3.5 px-4 align-middle">Order ID</th>
                 <th className="py-3.5 px-3 align-middle">Date</th>
